@@ -47,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $studentID && $batch) {
         $error = "You must agree to the Terms and Conditions.";
     } else {
         $stmt = mysqli_prepare($conn, "
-            INSERT INTO group_class_enrollment (studentID, batchID, enrollDateTime)
-            VALUES (?, ?, NOW())
+            INSERT INTO group_class_enrollment (studentID, batchID, enrollDateTime,status,isApprove)
+            VALUES (?, ?, NOW(),'ENROLLED',0)
         ");
         mysqli_stmt_bind_param($stmt, "ii", $studentID, $batchID);
 

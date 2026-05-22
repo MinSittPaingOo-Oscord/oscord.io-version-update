@@ -22,7 +22,7 @@
                         $studentCount = (int)$row['total'];
                     }
                 }
-                $displayStudents = $studentCount + 200;   // Add 200 as requested
+                $displayStudents = $studentCount + 300;  
                 ?>
                 <div class="text-7xl font-light text-black mb-3"><?= number_format($displayStudents) ?></div>
                 <div class="uppercase tracking-widest text-sm text-gray-500">Students Enrolled</div>

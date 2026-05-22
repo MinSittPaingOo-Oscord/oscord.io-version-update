@@ -46,8 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $studentID && $course) {
         // Insert with correct integer learningType + timestamp
         $stmt = mysqli_prepare($conn, "
             INSERT INTO enrollment 
-            (studentID, courseID, learningType, isApprove, isComplete, grade, enrollDateTime)
-            VALUES (?, ?, ?, 0, 0, NULL, NOW())
+            (studentID, courseID, learningType, isApprove, isComplete, grade, enrollDateTime,status)
+            VALUES (?, ?, ?, 0, 0, NULL, NOW(),'ENROLLED')
         ");
 
         mysqli_stmt_bind_param($stmt, "iii", $studentID, $courseID, $learningType);

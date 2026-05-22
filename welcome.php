@@ -17,21 +17,22 @@
         position: relative;
         overflow: hidden;
     }
-    .wc-hero::before {
-        content: 'OCA';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(140px, 28vw, 300px);
-        font-weight: 300;
-        color: #f0f0f0;
-        letter-spacing: -0.05em;
-        pointer-events: none;
-        user-select: none;
-        line-height: 1;
-    }
+        .wc-hero::before {
+            content: 'Since 2022';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(80px, 15vw, 170px);   /* Slightly smaller because text is longer */
+            font-weight: 300;
+            color: #f0f0f0;
+            letter-spacing: -0.05em;
+            pointer-events: none;
+            user-select: none;
+            line-height: 1;
+            opacity: 0.6;          /* Optional: make it a bit lighter if needed */
+        }
     .wc-hero-inner {
         position: relative;
         z-index: 1;

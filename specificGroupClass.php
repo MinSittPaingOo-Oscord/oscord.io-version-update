@@ -222,7 +222,7 @@ $currentVideo = !empty($modules) && !empty($modules[0]['items']) ? $modules[0]['
                     <source src="video/<?= htmlspecialchars($currentVideo['videoFile']) ?>" type="video/mp4">
                 </video>
             <?php else: ?>
-                <div class="absolute inset-0 flex items-center justify-center text-white text-2xl">No video available</div>
+                <div class="absolute inset-0 flex items-center justify-center text-white text-2xl">No video available yet</div>
             <?php endif; ?>
         </div>
 

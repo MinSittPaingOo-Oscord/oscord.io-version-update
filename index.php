@@ -5,6 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* ── Global mobile overflow fix ──────────────────────────────────
+           Prevents ANY included section from blowing out the page width.
+           Fixes the "content narrower than screen" bug on mobile.
+        ──────────────────────────────────────────────────────────────── */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        img, video, iframe, table {
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
     <?php 

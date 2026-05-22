@@ -43,7 +43,7 @@ if ($conn) {
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<div class="bg-zinc-50 min-h-screen pb-12">
+<div class="bg-white-50 min-h-screen pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         
         <div class="mb-12 text-center md:text-left">
