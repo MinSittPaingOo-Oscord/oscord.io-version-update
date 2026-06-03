@@ -1,7 +1,6 @@
 <?php
-// login_action.php - Student ONLY login (blocks admin & instructor)
 session_start();
-require_once 'includes/connectdb.php';
+require_once 'includes/auth.php';   // ← This is the key change
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: profile.php");
@@ -38,22 +37,24 @@ if ($result->num_rows === 1) {
         $blockResult = $blockStmt->get_result();
         
         if ($blockResult->num_rows > 0) {
-            // This is admin or instructor → BLOCK
             $_SESSION['error'] = "Admin and Instructor accounts cannot log in through this portal.";
             header("Location: profile.php");
             exit();
         }
         
-        // Only students are allowed
-        $_SESSION['accountID'] = $user['id'];
-        $_SESSION['success']   = "Welcome back, " . htmlspecialchars($user['name']) . "!";
-        
-        if (isset($_POST['remember_me'])) {
-            setcookie("remember_user", $user['id'], time() + (86400 * 30), "/", "", false, true);
+        // SINGLE DEVICE LOGIN
+        if (loginUser($user['id'])) {
+            $_SESSION['success'] = "Welcome back, " . htmlspecialchars($user['name']) . "!";
+            
+            if (isset($_POST['remember_me'])) {
+                setcookie("remember_user", $user['id'], time() + (86400 * 30), "/", "", false, true);
+            }
+            
+            header("Location: profile.php");
+            exit();
+        } else {
+            $_SESSION['error'] = "Login failed. Please try again.";
         }
-        
-        header("Location: profile.php");
-        exit();
     }
 }
 

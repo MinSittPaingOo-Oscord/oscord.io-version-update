@@ -3,7 +3,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-    /* ==================== OSCORD NAV ==================== */
     #oscord-nav *, #oscord-nav *::before, #oscord-nav *::after {
         box-sizing: border-box;
         margin: 0;
@@ -152,7 +151,7 @@
         transform: translateY(-6.5px) rotate(-45deg);
     }
 
-    /* ---- Mobile overlay ---- */
+    /* ---- Mobile overlay (FIXED) ---- */
     #oscord-nav .nav-overlay {
         display: none;
         position: fixed;
@@ -163,12 +162,15 @@
         transition: opacity var(--transition);
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
+        pointer-events: none;
     }
     #oscord-nav .nav-overlay.is-visible {
+        display: block;
         opacity: 1;
+        pointer-events: auto;
     }
 
-    /* ---- Mobile drawer ---- */
+    /* ---- Mobile drawer (FIXED) ---- */
     #oscord-nav .nav-drawer {
         display: none;
         position: fixed;
@@ -185,6 +187,7 @@
         pointer-events: none;
     }
     #oscord-nav .nav-drawer.is-open {
+        display: block;
         opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
@@ -248,10 +251,7 @@
         #oscord-nav .hamburger-btn {
             display: flex;
         }
-        #oscord-nav .nav-overlay,
-        #oscord-nav .nav-drawer {
-            display: block;
-        }
+        /* Do NOT force display:block on overlay and drawer here */
     }
 
     /* ---- Body scroll lock ---- */
@@ -301,7 +301,6 @@
 
 <script>
 (function () {
-    // Run immediately; safe to call multiple times (idempotent guard)
     if (window.__oscordNavInit) return;
     window.__oscordNavInit = true;
 
@@ -311,7 +310,6 @@
         var overlay  = document.getElementById('oscordOverlay');
         if (!btn || !drawer || !overlay) return;
 
-        // Auto-mark active link based on current page filename
         var page = window.location.pathname.split('/').pop() || 'index.php';
         document.querySelectorAll('#oscord-nav .nav-link').forEach(function (a) {
             var href = a.getAttribute('href');
@@ -342,17 +340,14 @@
 
         overlay.addEventListener('click', closeMenu);
 
-        // Close on nav link click (page navigation)
         drawer.querySelectorAll('.nav-link').forEach(function (a) {
             a.addEventListener('click', closeMenu);
         });
 
-        // Close on Escape
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') closeMenu();
         });
 
-        // Close drawer if window resized to desktop width
         window.addEventListener('resize', function () {
             if (window.innerWidth > 768) closeMenu();
         });

@@ -66,7 +66,7 @@ if ($conn) {
 
 <div class="max-w-7xl mx-auto px-6 py-16">
     <div class="flex justify-between items-end mb-10">
-        <h2 class="text-5xl md:text-6xl font-light tracking-[-2.5px]">Featured Courses</h2>
+        <h2 class="text-5xl md:text-6xl font-light tracking-[-2.5px]"><b>Our Premium Courses</b></h2>
         <a href="courses.php" class="text-black hover:text-purple-600 flex items-center gap-2 text-lg">
             View All →
         </a>

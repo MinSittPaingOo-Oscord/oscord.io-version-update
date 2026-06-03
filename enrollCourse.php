@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'includes/auth.php';
+requireLogin();       
 include './nav.php';
 
 $courseID = isset($_GET['courseID']) ? (int)$_GET['courseID'] : 0;
@@ -194,17 +195,17 @@ $baseFee = $course['fee'] ?? 0;
                 <div class="flex-shrink-0">
                     <p class="uppercase text-xs tracking-[1px] text-gold mb-3">SCAN QR CODE</p>
                     <div class="w-64 h-64 border-4 border-gold rounded-3xl bg-[#FEFBF0] flex items-center justify-center overflow-hidden">
-                        <img src ='./image/KPayScan.jpg'>
+                        <img src ='./image/KPaySca2.jpg'>
                     </div>
                 </div>
                 <div class="flex-1 space-y-8">
                     <div>
                         <div class="text-xs uppercase tracking-widest text-gold mb-2">KPay Phone Number</div>
-                        <div class="text-3xl font-medium">09791303803</div>
+                        <div class="text-3xl font-medium">+959259662272</div>
                     </div>
                     <div>
                         <div class="text-xs uppercase tracking-widest text-gold mb-2">Account Name</div>
-                        <div class="text-3xl font-medium">Min Sitt Paing Oo</div>
+                        <div class="text-3xl font-medium">Lin Khant Min Maung</div>
                     </div>
                     <p class="text-sm text-muted max-w-xs">After payment, please keep the transaction receipt / screenshot as proof for verification.</p>
                 </div>

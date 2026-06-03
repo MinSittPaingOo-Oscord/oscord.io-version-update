@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'includes/auth.php';
+requireLogin();                 
 
 $batchID = isset($_GET['batchID']) ? (int)$_GET['batchID'] : 0;
 $batch = null;
@@ -151,17 +152,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $studentID && $batch) {
             
             <div class="qr-container mx-auto max-w-[260px]">
                 <p class="text-center text-xs tracking-widest text-gold mb-4">SCAN QR CODE</p>
-                <img src="./image/KPayScan.jpg" alt="KPay QR Code" class="w-full rounded-2xl">
+                <img src="./image/KPaySca2.jpg" alt="KPay QR Code" class="w-full rounded-2xl">
             </div>
 
             <div class="mt-8 grid md:grid-cols-2 gap-8 text-center md:text-left">
                 <div>
                     <p class="text-xs text-gold tracking-widest">KPay NUMBER</p>
-                    <p class="text-3xl font-medium">09791303803</p>
+                    <p class="text-3xl font-medium">+959259662272</p>
                 </div>
                 <div>
                     <p class="text-xs text-gold tracking-widest">ACCOUNT NAME</p>
-                    <p class="text-3xl font-medium">Min Sitt Paing Oo</p>
+                    <p class="text-3xl font-medium">Lin Khant Min Maung</p>
                 </div>
             </div>
         </div>

@@ -67,7 +67,7 @@ sort($countries);
 
         /* ── page shell ── */
         .page-wrap {
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 48px 20px 80px;
             animation: fadeUp .5s ease both;

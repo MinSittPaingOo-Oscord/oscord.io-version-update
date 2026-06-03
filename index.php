@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <style>
         /* ── Global mobile overflow fix ──────────────────────────────────
            Prevents ANY included section from blowing out the page width.
